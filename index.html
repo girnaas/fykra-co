@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fykra — Product Management, Built Right</title>
+<style>
+  :root {
+    --ink: #14171c;
+    --ink-dark: #0a0c10;
+    --blue: #2f6bff;
+    --blue-light: #6f9bff;
+    --text: #1a1a1a;
+    --muted: #5c6675;
+    --bg: #ffffff;
+    --bg-alt: #f4f6fa;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.55;
+  }
+  a { color: inherit; }
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  header { background: var(--ink); color: #fff; padding: 18px 0; }
+  header .container { display: flex; align-items: center; justify-content: space-between; }
+  .logo { font-weight: 800; font-size: 22px; letter-spacing: 0.5px; color: #fff; }
+  .logo span { color: var(--blue-light); }
+  nav a { color: #b7bcc6; text-decoration: none; margin-left: 28px; font-size: 14px; }
+  nav a:hover { color: var(--blue-light); }
+
+  .hero { background: linear-gradient(160deg, var(--ink) 0%, var(--ink-dark) 100%); color: #fff; padding: 90px 0 100px; }
+  .hero .container { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; }
+  .eyebrow { display: inline-block; color: var(--blue-light); font-size: 13px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 18px; font-weight: 700; }
+  h1 { font-size: 44px; line-height: 1.15; margin: 0 0 20px; font-weight: 800; }
+  .hero p.lead { font-size: 18px; color: #c3c7cf; margin: 0 0 32px; max-width: 480px; }
+  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 14px 28px; border-radius: 6px; font-weight: 700; font-size: 15px; text-decoration: none; cursor: pointer; border: none; }
+  .btn-primary { background: var(--blue); color: #fff; }
+  .btn-primary:hover { background: var(--blue-light); }
+  .btn-ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.35); }
+  .btn-ghost:hover { border-color: var(--blue); color: var(--blue-light); }
+
+  .hero-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 28px; }
+  .hero-card h3 { margin: 0 0 16px; font-size: 15px; color: var(--blue-light); text-transform: uppercase; letter-spacing: 1px; }
+  .hero-stat { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 14px; }
+  .hero-stat:last-child { border-bottom: none; }
+
+  section { padding: 80px 0; }
+  .section-alt { background: var(--bg-alt); }
+  .kicker { color: var(--blue); font-weight: 700; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px; }
+  h2 { font-size: 30px; margin: 0 0 16px; font-weight: 800; color: var(--ink); }
+  .section-lead { color: var(--muted); font-size: 16px; max-width: 640px; margin: 0 0 40px; }
+
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .card { background: #fff; border: 1px solid #e6e9ee; border-radius: 10px; padding: 28px; }
+  .card .num { color: var(--blue); font-weight: 800; font-size: 22px; margin-bottom: 10px; }
+  .card h3 { font-size: 18px; margin: 0 0 10px; color: var(--ink); }
+  .card p { color: var(--muted); font-size: 14.5px; margin: 0; }
+
+  .process { display: flex; flex-direction: column; gap: 0; }
+  .step { display: grid; grid-template-columns: 60px 1fr; gap: 20px; padding: 24px 0; border-bottom: 1px solid #e6e9ee; }
+  .step:last-child { border-bottom: none; }
+  .step .n { width: 44px; height: 44px; border-radius: 50%; background: var(--ink); color: var(--blue-light); display: flex; align-items: center; justify-content: center; font-weight: 800; }
+  .step h4 { margin: 4px 0 6px; font-size: 17px; color: var(--ink); }
+  .step p { margin: 0; color: var(--muted); font-size: 14.5px; }
+
+  .quote-band { background: var(--ink); color: #fff; padding: 60px 0; text-align: center; }
+  .quote-band p { font-size: 22px; font-style: italic; max-width: 700px; margin: 0 auto; color: #e3e5ea; }
+  .quote-band span { display: block; margin-top: 18px; color: var(--blue-light); font-style: normal; font-weight: 600; font-size: 14px; }
+
+  .faq-item { border-bottom: 1px solid #e6e9ee; padding: 20px 0; }
+  .faq-item h4 { margin: 0 0 8px; font-size: 16px; color: var(--ink); }
+  .faq-item p { margin: 0; color: var(--muted); font-size: 14.5px; }
+
+  .form-section { background: var(--ink); color: #fff; }
+  .form-wrap { max-width: 560px; margin: 0 auto; text-align: center; }
+  .form-wrap h2 { color: #fff; }
+  .form-wrap .section-lead { color: #c3c7cf; margin: 0 auto 32px; }
+  form { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 28px; text-align: left; }
+  label { display: block; font-size: 13px; color: #b7bcc6; margin-bottom: 6px; font-weight: 600; }
+  input, textarea, select { width: 100%; padding: 11px 12px; margin-bottom: 16px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.06); color: #fff; font-size: 14px; font-family: inherit; }
+  input::placeholder, textarea::placeholder { color: #7d818a; }
+  form .btn-primary { width: 100%; padding: 14px; font-size: 16px; }
+
+  footer { background: var(--ink-dark); color: #7d818a; padding: 32px 0; text-align: center; font-size: 13px; }
+
+  @media (max-width: 800px) {
+    .hero .container { grid-template-columns: 1fr; }
+    h1 { font-size: 32px; }
+    .grid-3 { grid-template-columns: 1fr; }
+    nav { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="logo">Fykra</div>
+    <nav>
+      <a href="#how">How it works</a>
+      <a href="#why">Why us</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Talk to us</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div>
+      <span class="eyebrow">Product Management Consultancy</span>
+      <h1>Build the product function you haven't had time to build.</h1>
+      <p class="lead">Fykra helps founders and CPOs install real product management: strategy, process, and hiring — so shipping stops depending on any one person's memory.</p>
+      <div class="cta-row">
+        <a href="#contact" class="btn btn-primary">Get a free PM maturity audit</a>
+        <a href="#how" class="btn btn-ghost">See how it works</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Sound familiar?</h3>
+      <div class="hero-stat">Roadmap lives in someone's head, not a system</div>
+      <div class="hero-stat">Engineering builds faster than product can define "why"</div>
+      <div class="hero-stat">No clear owner for prioritization decisions</div>
+      <div class="hero-stat">Growing team, no PM hiring plan yet</div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="container">
+    <div class="kicker">Why this matters</div>
+    <h2>Velocity without direction just burns runway faster.</h2>
+    <p class="section-lead">Most teams don't lack execution speed — they lack a product operating system: how priorities get set, how success gets measured, and who owns the call. We install that system, then help you hire for it.</p>
+    <div class="grid-3">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>Product strategy</h3>
+        <p>A clear framework for prioritization tied to real business outcomes, not whoever's loudest in the room.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>Process & rituals</h3>
+        <p>Lightweight discovery, planning, and roadmap cadences sized to your team — not enterprise process theater.</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>PM hiring & structure</h3>
+        <p>A hiring plan and interview process for your first (or next) product hires, so the function survives past us.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt" id="how">
+  <div class="container">
+    <div class="kicker">Engagement</div>
+    <h2>How an engagement runs</h2>
+    <p class="section-lead">A focused sprint, not an open-ended retainer — typically 4 to 8 weeks to a working product operating system.</p>
+    <div class="process">
+      <div class="step">
+        <div class="n">1</div>
+        <div><h4>Audit</h4><p>We map your current product decisions, rituals, and gaps against how a mature PM function should run at your stage.</p></div>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <div><h4>Design</h4><p>We define the strategy framework, prioritization model, and cadence that fit your team size and velocity.</p></div>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <div><h4>Install</h4><p>We run the new process alongside your team for a cycle or two, correcting as we go.</p></div>
+      </div>
+      <div class="step">
+        <div class="n">4</div>
+        <div><h4>Hire & hand off</h4><p>We help you hire and onboard the PM talent to own it going forward.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="quote-band">
+  <div class="container">
+    <p>"Speed without a product operating system is just motion. We install the system."</p>
+    <span>— Fykra Advisory Principle</span>
+  </div>
+</div>
+
+<section id="faq">
+  <div class="container">
+    <div class="kicker">Common questions</div>
+    <h2>Frequently asked</h2>
+    <div class="faq-item">
+      <h4>Do you replace our need to hire a PM?</h4>
+      <p>No — we build the system and often help you hire the right first PM, then hand off cleanly.</p>
+    </div>
+    <div class="faq-item">
+      <h4>What size of company do you typically work with?</h4>
+      <p>Mostly early- to growth-stage startups shipping product without a dedicated, mature PM function yet.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Is this a one-time engagement or ongoing?</h4>
+      <p>Core engagements are 4-8 weeks. Some clients bring us back quarterly for a light audit as they scale.</p>
+    </div>
+  </div>
+</section>
+
+<section class="form-section" id="contact">
+  <div class="container">
+    <div class="form-wrap">
+      <div class="kicker">Get started</div>
+      <h2>Get your free PM maturity audit</h2>
+      <p class="section-lead">Tell us where product decisions get stuck today, and we'll reach out to schedule a call.</p>
+      <form id="leadForm" action="https://docs.google.com/forms/d/e/1FAIpQLSeXe2ZqC7H6NvP_d0jvpMvWJ5gB8xr2ygV4sWoQzkrM5_cASg/formResponse" method="post" target="hidden_iframe" onsubmit="window._gformSubmitted=true;">
+        <label for="name">Name</label>
+        <input id="name" name="entry.1213649884" type="text" placeholder="Your full name" required>
+        <label for="company">Company</label>
+        <input id="company" name="entry.1493397012" type="text" placeholder="Company name" required>
+        <label for="email">Work email</label>
+        <input id="email" name="entry.212768209" type="email" placeholder="you@company.com" required>
+        <label for="message">What's the biggest product friction right now?</label>
+        <textarea id="message" name="entry.1211565325" rows="3" placeholder="e.g. no clear roadmap process, first PM hire, prioritization chaos..."></textarea>
+        <button type="submit" class="btn btn-primary">Request audit</button>
+        <p id="formSentMsg" style="display:none; margin-top:14px; color:#7fe0a3; font-weight:600;">Thanks — we've got it. We'll be in touch shortly.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(window._gformSubmitted){document.getElementById('leadForm').style.display='none'; document.getElementById('formSentMsg').style.display='block';}"></iframe>
+
+<footer>
+  <div class="container">
+    <div class="logo" style="color:#fff;">Fykra</div>
+    <p style="margin-top:10px;">Product Management Advisory &nbsp;•&nbsp; Info@girnaas.com</p>
+  </div>
+</footer>
+
+</body>
+</html>
