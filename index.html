@@ -39,10 +39,11 @@
   nav a { color: #b7bcc6; text-decoration: none; margin-left: 28px; font-size: 14px; }
   nav a:hover { color: var(--blue-light); }
 
-  .hero { background: linear-gradient(160deg, var(--ink) 0%, var(--ink-dark) 100%); color: #fff; padding: 90px 0 100px; }
+  .hero { background: linear-gradient(160deg, var(--ink) 0%, var(--ink-dark) 100%); color: #fff; padding: 90px 0 64px; }
   .hero .container { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; }
   .eyebrow { display: inline-block; color: var(--blue-light); font-size: 13px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 18px; font-weight: 700; }
   h1 { font-family: var(--font-headline); font-size: 48px; line-height: 1.12; margin: 0 0 20px; font-weight: 700; letter-spacing: -0.5px; }
+  h1 .accent { color: var(--blue-light); }
   .hero p.lead { font-size: 18px; color: #c3c7cf; margin: 0 0 32px; max-width: 480px; }
   .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
   .btn { display: inline-block; padding: 14px 28px; border-radius: 6px; font-weight: 700; font-size: 15px; text-decoration: none; cursor: pointer; border: none; }
@@ -56,6 +57,11 @@
   .hero-stat { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 14px; }
   .hero-stat:last-child { border-bottom: none; }
 
+  .trust-strip { background: var(--ink-dark); border-top: 1px solid rgba(255,255,255,0.08); padding: 18px 0; }
+  .trust-strip .container { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0; }
+  .trust-item { color: #b3b8c2; font-size: 13px; font-weight: 600; letter-spacing: 0.2px; padding: 6px 22px; }
+  .trust-item + .trust-item { border-left: 1px solid rgba(255,255,255,0.15); }
+
   section { padding: 80px 0; }
   .section-alt { background: var(--bg-alt); }
   .kicker { color: var(--blue); font-weight: 700; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px; }
@@ -67,6 +73,9 @@
   .card .num { color: var(--blue); font-weight: 800; font-size: 22px; margin-bottom: 10px; }
   .card h3 { font-family: var(--font-headline); font-weight: 600; font-size: 19px; margin: 0 0 10px; color: var(--ink); }
   .card p { color: var(--muted); font-size: 14.5px; margin: 0; }
+  .card-link { display: inline-block; margin-top: 16px; font-size: 13.5px; font-weight: 700; color: var(--blue); text-decoration: none; }
+  .card-link:hover { color: #1e4fd1; }
+  .card-link::after { content: " →"; }
 
   .process { display: flex; flex-direction: column; gap: 0; }
   .step { display: grid; grid-template-columns: 60px 1fr; gap: 20px; padding: 24px 0; border-bottom: 1px solid #e6e9ee; }
@@ -100,6 +109,7 @@
     h1 { font-size: 32px; }
     .grid-3 { grid-template-columns: 1fr; }
     nav { display: none; }
+    .trust-item { padding: 6px 14px; font-size: 12px; }
   }
 </style>
 </head>
@@ -110,7 +120,7 @@
     <div class="logo">Fykra</div>
     <nav>
       <a href="#how">How it works</a>
-      <a href="#why">Why us</a>
+      <a href="#services">Services</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Talk to us</a>
     </nav>
@@ -121,7 +131,7 @@
   <div class="container">
     <div>
       <span class="eyebrow">Product Management Consultancy</span>
-      <h1>Build the product function you haven't had time to build.</h1>
+      <h1>Build the <span class="accent">product function</span> you haven't had time to build.</h1>
       <p class="lead">Fykra helps founders and CPOs install real product management: strategy, process, and hiring — so shipping stops depending on any one person's memory.</p>
       <div class="cta-row">
         <a href="#contact" class="btn btn-primary">Get a free PM maturity audit</a>
@@ -138,32 +148,51 @@
   </div>
 </section>
 
+<div class="trust-strip">
+  <div class="container">
+    <div class="trust-item">Installed with your team, not handed off as a deck</div>
+    <div class="trust-item">4–8 week engagements to a working system</div>
+    <div class="trust-item">Includes hiring support for your first PM</div>
+  </div>
+</div>
+
 <section id="why">
   <div class="container">
     <div class="kicker">Why this matters</div>
     <h2>Velocity without direction just burns runway faster.</h2>
     <p class="section-lead">Most teams don't lack execution speed — they lack a product operating system: how priorities get set, how success gets measured, and who owns the call. We install that system, then help you hire for it.</p>
+  </div>
+</section>
+
+<section class="section-alt" id="services">
+  <div class="container">
+    <div class="kicker">Our Services</div>
+    <h2>Everything a product function needs, installed together</h2>
+    <p class="section-lead">Strategy, process, and hiring — delivered as one engagement so the function survives after we leave, not a report that sits in a drive.</p>
     <div class="grid-3">
       <div class="card">
         <div class="num">01</div>
         <h3>Product strategy</h3>
         <p>A clear framework for prioritization tied to real business outcomes, not whoever's loudest in the room.</p>
+        <a href="#how" class="card-link">Learn more</a>
       </div>
       <div class="card">
         <div class="num">02</div>
-        <h3>Process & rituals</h3>
+        <h3>Process &amp; rituals</h3>
         <p>Lightweight discovery, planning, and roadmap cadences sized to your team — not enterprise process theater.</p>
+        <a href="#how" class="card-link">Learn more</a>
       </div>
       <div class="card">
         <div class="num">03</div>
-        <h3>PM hiring & structure</h3>
+        <h3>PM hiring &amp; structure</h3>
         <p>A hiring plan and interview process for your first (or next) product hires, so the function survives past us.</p>
+        <a href="#how" class="card-link">Learn more</a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section-alt" id="how">
+<section id="how">
   <div class="container">
     <div class="kicker">Engagement</div>
     <h2>How an engagement runs</h2>
